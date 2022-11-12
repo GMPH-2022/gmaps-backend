@@ -35,14 +35,9 @@ function generateRandomPoints() {
 function gridIndex(lat, lng) {
   const N = (MAXLAT - MINLAT) * 111.32;
   const M = (MAXLNG - MINLNG) * 111.32;
-  console.log("N: ", N);
-  console.log("M: ", M);
   const unitcell = 0.01;
   const i = Math.floor((lat - MINLAT) / unitcell);
   const j = Math.floor((lng - MINLNG) / unitcell);
-
-  console.log("i: ", i);
-  console.log("j: ", j);
   return {i, j};
 }
 
@@ -82,6 +77,13 @@ function plot(x, y) {
 
   return grid;
 }
+
+module.exports = {
+    getDistanceFromLatLonInKm,
+    generateRandomPoints,
+    gridIndex,
+    plot
+};
 
 
 // --------------------------------------------- TEST CASES ---------------------------------------------

@@ -2,7 +2,7 @@ const fs = require("firebase-admin");
 const port = process.env.PORT || 3000;
 const express = require("express");
 const cors = require("cors");
-
+const utils = require("./util");
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -12,8 +12,6 @@ const serviceAccount = require("./serviceAccountKey.json");
 fs.initializeApp({
     credential: fs.credential.cert(serviceAccount),
 });
-
-console.log(serviceAccount);
 
 const db = fs.firestore();
 
@@ -102,7 +100,7 @@ app.delete("/drivers/delete/:id", async (req, res) => {
   }
 });
 
-// get the a lat and lng from user and get  the nearest drivers
+// get the a lat and lng from user and get the nearest drivers
 app.get("/drivers/nearby", async (req, res) => {
   try {
     const lat = req.query.lat;
@@ -110,6 +108,24 @@ app.get("/drivers/nearby", async (req, res) => {
     // TODO: Nearby drivers
   } catch (error) {
     res.send(error);
+  }
+});
+
+// given lat and lng get the i and j
+app.get("/drivers/gridindex", async (req, res) => {
+  try {
+    const lat = req.query.lat;
+    const lng = req.query.lng;
+    const {i, j} = utils.gridIndex(lat, lng);
+    res.status(200).send({
+      status: "OK",
+      message: "grid index fetched!!",
+      i,
+      j
+    });
+  } catch (error) {
+    res.send(error);
+    
   }
 });
 

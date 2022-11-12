@@ -1,0 +1,31 @@
+### Get I and J
+GET http://localhost:3000/drivers/gridindex?lat=9.756067&lng=76.649637
+Content-Type: application/json
+
+### get list of drivers
+GET http://localhost:3000/drivers/get
+Content-Type: application/json
+
+### create a driver
+POST http://localhost:3000/drivers/create
+Content-Type: application/json
+{
+  "name": "harini",
+  "email": "harini@gmail.com",
+   "destination": {
+    "location": {
+        "lat": 12.9316,
+        "lng": 77.5246
+    },
+    "uid": "1234567821"
+  },
+  "source":{
+    "location":{
+      "lat": 12.9713,
+      "lng": 77.8043
+    },
+    "uid": "123456712"
+  }
+}
+
+###
