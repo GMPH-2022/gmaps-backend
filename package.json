@@ -1,0 +1,29 @@
+{
+  "name": "gmaps-backend",
+  "version": "1.0.0",
+  "description": "gmaps backend",
+  "main": "index.js",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "firebase": "^9.14.0",
+    "firebase-admin": "^11.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GMPH-2022/gmaps-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GMPH-2022/gmaps-backend/issues"
+  },
+  "homepage": "https://github.com/GMPH-2022/gmaps-backend#readme"
+}
